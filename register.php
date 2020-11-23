@@ -83,5 +83,6 @@ if (!empty(get_user_id_by_email($connection, $user_email))) {
 */
 } else {
     add_user($connection, $user_email, $user_password);
+    set_flash_message("success", "Регистрация успешна");
     redirect_to("/tasks2/page_login.php");
 }
