@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); require("functions.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,11 +62,12 @@
                                 <div class="card p-4 rounded-plus bg-faded">
 
                                     <!-- Если пользователь с таким email уже есть -->
-                                    <?php if (isset($_SESSION['danger'])):?>
-                                    <div class="alert alert-danger text-dark" role="alert">
-                                        <strong>Уведомление!</strong> <?php echo $_SESSION["danger"]; unset($_SESSION["danger"]);?>
-                                    </div>
-                                    <?php endif;?>
+                                    <?php
+                                        if (isset($_SESSION['danger'])) {
+                                            display_flash_message("danger");
+                                            
+                                        }
+                                    ?>
 
                                     <!-- Форма регистрации нового пользователя -->
                                     <form id="js-login" novalidate="" action="register.php" method="post">

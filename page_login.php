@@ -1,3 +1,4 @@
+<?php session_start(); require("functions.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,9 +34,14 @@
             </a>
         </div>
         <div class="card p-4 border-top-left-radius-0 border-top-right-radius-0">
-            <div class="alert alert-success">
-                Регистрация успешна
-            </div>
+
+            <?php
+                if (isset($_SESSION['success'])) {
+                    display_flash_message("success");
+                }
+            ?>
+
+
             <form action="">
                 <div class="form-group">
                     <label class="form-label" for="username">Email</label>
